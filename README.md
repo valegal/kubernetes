@@ -2,7 +2,7 @@
 Alta disponibilidad con kubernetes
 
 
-´ Configuración de la WebApp ´
+-----> *Configuración de la WebApp*
 
 ## demo app - developing with Docker
 
