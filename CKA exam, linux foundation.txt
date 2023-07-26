@@ -1,0 +1,61 @@
+CKA exam, linux foundation
+
+Kuernetes
+	Open source container orchestation tool. Guarantee following features.
+	- High Availability or no downtime.
+
+Basic architecture:
+	- Master-Slave
+	- k8s processes
+Kubernetes cluster is made up with at least one master node and then connected it we have a couple of worker nodes where each node has a kubelet process running on it.
+
+* Kubelet is a kubernetes process that makes it for the cluster to talk (communicate) to each other and excecute some tasks on those nodes like 'running application processes'.
+
+1. Each worker node has docker containers of different applications deployed on it, so depending on how the workload is distributed you would have different number of docker containers running on worker nodes and worker nodes are where the actual work is happening so here is where your applications are running.
+
+---> On worker nodes your applications are running!
+
+What is running in the master node?
+
+	Master node actually runs several kubernetes processes that are absolutly necessary to run and manage the cluster properly one of such processes is an API server.
+
+* API server (which also is a container) is actually the entry point to the k8s cluster, so this is the process which the different kubernetes client will talk to... like UI if you are using k8s dashboards and API if your using some scrips and automating technologies and a command-line tool.
+
+* Controller Manager (another one runs in the master node) basically keeps an overview of whats happening in the cluster, whether something needs to be repaired or maybe if a conatiner died and it needs to be restarted etc.
+
+* Scheduler: responsible for scheduling container on different nodes based on the workload and the available server resources on each node.
+
+* etcd key value storage: holds at any time the current state of the kubernetes cluster, has all the configuration data inside and all the status data of each node and each container.
+
+
+----> Virtual network
+	enables those worker nodes - master nodes talk to each other. Creates one unified machine.
+
+Basic concepts:
+
+	* Pod: the smallest unit that we as kubernetes user will configure and interact with, Pod is a wrapper of a container and on each worker node you're gonna have multiple pods and inside of a pod you can actually have multiple containers. 
+
+
+	if a container stops or dies inside of a pod it will be automatically restarted inside of the pod, however pods are ephemeral components which means that pods can also die, very frequently and when a pod dies a new one gets created.
+
++++ and here is where the notion of service come into play | so what happens is that whenever a pod gets restarted or weak a new pod is created and it gets a new IP address --- so for example if you have your application talking to a database pod using the IP address the pods have and the pod restarts it gets a new IP address.
+
+----> Service
+	a substitute to those IP addresses so instead of having this dynamic IP addresses their services sitting in front of each pod that talk to each other so now if a pod behind the service dies and gets recreated the service stays in place. Because their life cycles are not tied to each other.
+
+	1. permanent IP address, to communicate between the pods.
+	2. It's a load balancer. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

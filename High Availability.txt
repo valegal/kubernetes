@@ -1,0 +1,47 @@
+° High Availability, la aplicación siempre está disponible para el usuario.
+
+° 
+API Server =  Entrypoint to k8s cluster. (UI, API, CLI)
+Controller Manager = keeps track of what happening in the cluster.
+Scheduler = ensures Pods placement.
+etcd = kubernetes backing store.
+
+° Service: permanent IP address, lifecycle of Pod and Service are not connected.
+
+	- You specify the type of Service on creation.
+	- Internal service is the default type.
+
+------> Configuration
+
+- Declarative
+ 1) metadata
+ 2) specification
+ 3) status 
+
+Minikube: one node cluster where the master processes and the worker processes both run on one node and thi node will have a docker container runtime pre-installed so you will be able to run the containers or the pods with containers on this node.
+
+Kubectl: command line tool for k8s cluster. It's the most powerful of 3 clients (UI, API, CLI) 
+
+kubectl get all
+
+kubectl get configmap
+
+kubectl get secret
+
+kubectl get --help
+
+kubectl logs webapp-deployment-f8d7df85d-jp9lb -f
+
+kubectl logs webapp-deployment-f8d7df85d-jp9lb
+
+minikube status
+
+minikube get nodes
+
+
+
+
+
+
+
+
